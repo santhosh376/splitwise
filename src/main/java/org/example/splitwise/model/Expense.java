@@ -1,10 +1,17 @@
 package org.example.splitwise.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Expense extends BaseModel {
 
     private String name;
@@ -19,9 +26,9 @@ public class Expense extends BaseModel {
     //who all paid in this expense - paidBy
     //who all owe some amount int the expense- owedBy
 
-    @OneToMany
+    @OneToMany //(mappedBy = "expenseUser")
     List<ExpenseUser> paidBy;
 
-    @OneToMany
+    @OneToMany //(mappedBy = "expenseUser")
     List<ExpenseUser> owedBy;
 }

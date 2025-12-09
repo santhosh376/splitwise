@@ -1,8 +1,8 @@
 package org.example.splitwise.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import org.springframework.data.annotation.CreatedBy;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,7 +11,11 @@ import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)
-@Data
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

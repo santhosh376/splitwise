@@ -20,5 +20,10 @@ public class UserController {
     public @ResponseBody User getUser(@PathVariable(name="id") Long id){
           return userRepository.findById(id).orElseThrow(RuntimeException::new);
     }
+
+    // TODO: Add post mapping for creating a user
+    // Use dto 's for post mapping
+
+
 }
 
